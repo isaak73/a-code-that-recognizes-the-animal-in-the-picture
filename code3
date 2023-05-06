@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animal Recognition</title>
+</head>
+<body>
+  <h1>Animal Recognition</h1>
+  <img id="animalImage" src="path_to_your_image" alt="Animal Image">
+  <div id="animalName"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+JavaScript (script.js):
+
+
+// Define a map with image file names as keys and corresponding animal names as values
+const animalMap = {
+  'image1.jpg': 'Lion',
+  'image2.jpg': 'Elephant',
+  'image3.jpg': 'Tiger',
+  // Add more image names and animal names as needed
+};
+
+// Get the image element
+const animalImage = document.getElementById('animalImage');
+
+// Add an event listener to the image element to detect when the image is loaded
+animalImage.addEventListener('load', function() {
+  // Get the current image file name
+  const imageName = animalImage.getAttribute('src').split('/').pop();
+
+  // Find the animal name associated with the image file name in the map
+  const animalName = animalMap[imageName];
+
+  // Display the animal name in the HTML element
+  const animalNameElement = document.getElementById('animalName');
+  animalNameElement.textContent = animalName;
+});
+
+
+In the HTML code, replace 'path_to_your_image' with the actual path to your image file. Also, make sure to place the script.js file in the same directory as the HTML file, or update the src attribute of the <script> tag accordingly.
+
+The JavaScript code creates a map (animalMap) that associates image file names with animal names. When the image is loaded, the code retrieves the file name, looks up the corresponding animal name in the map, and displays it in the animalName HTML element.
+
+Make sure to replace the image file names and animal names in the animalMap object with the appropriate values for your specific case.
